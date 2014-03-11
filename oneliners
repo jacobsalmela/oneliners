@@ -168,3 +168,6 @@ say -o audio.aiff -f file.txt
 
 # List all apps downloaded from the Mac App Store
 find /Applications -path '*Contents/_MASReceipt/receipt' -maxdepth 4 -print |\sed 's#.app/Contents/_MASReceipt/receipt#.app#g; s#/Applications/##'
+
+# Run command if user presses Ctrl+C
+trap "<command_to_run>" INT
