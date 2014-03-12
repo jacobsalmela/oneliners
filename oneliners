@@ -171,3 +171,7 @@ find /Applications -path '*Contents/_MASReceipt/receipt' -maxdepth 4 -print |\se
 
 # Run command if user presses Ctrl+C
 trap "<command_to_run>" INT
+
+# Send a text message
+# http://osxdaily.com/2014/03/12/send-sms-text-message-from-command-line/
+curl http://textbelt.com/text -d number=<ten_digit_phone_number> -d "message=<your_message_here>"
