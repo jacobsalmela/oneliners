@@ -152,6 +152,9 @@ sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delet
 # Tell your Mac to ask for 10,000 requests to run concurrently by 50 pretend users' concurrent connection
 ab -n 10000 -c 50 http://test.server.com
 
+# Display 10 second average up/down for en0--change en0 to desired network interface
+sar -n DEV 1 10 | grep -i 'average.*en0'| awk '{printf "Up:\t%.2f Kbps\nDown:\t%.2f Kbps\n", $6 / 1024, $4 / 1024 }'
+
 ###############################
 ########### MISC ##############
 
