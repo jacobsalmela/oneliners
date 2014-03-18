@@ -121,6 +121,9 @@ sudo dseditgroup -o edit -a <username> -t user admin
 # Reveal Firmware password -- older version only
 python -c "print ''.join(chr(int(c, 16) ^ 170) for c in '`sudo nvram security-password`'.split('%')[1:])"
 
+# Print RAM size
+sysctl -n hw.memsize | awk '{print $0/1073741824" GB RAM"}';
+
 ###############################
 ###### NETWORK/INTERNET #######
 
