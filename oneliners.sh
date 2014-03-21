@@ -161,6 +161,13 @@ ioreg -c AppleSMC | grep smc-version | cut -d'"' -f4
 # Show Bluetooth MAC address
 ioreg -c IOBluetoothHCIController | grep BluetoothDeviceAddress | grep -v BluetoothDeviceAddressData | cut -d'"' -f4
 
+# Append all commands entered into the system log
+# http://jablonskis.org/2011/howto-log-bash-history-to-syslog/
+# Add this to .bash_profile 
+# Used with my Single-user mode IDS
+# https://github.com/jakesalmela/single-user-mode-ids
+declare -rx PROMPT_COMMAND='history -a >(tee -a ~/.bash_history | logger -t "**SUM-IDS")'
+
 ###############################
 ########### MISC ##############
 
