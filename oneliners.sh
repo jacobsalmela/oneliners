@@ -197,3 +197,9 @@ trap "<command_to_run>" INT
 # Send a text message
 # http://osxdaily.com/2014/03/12/send-sms-text-message-from-command-line/
 curl http://textbelt.com/text -d number=<ten_digit_phone_number> -d "message=<your_message_here>"
+
+# Enable App Store Degub menu
+defaults write com.apple.appstore ShowDebugMenu -bool true
+# Start downloading an app.  Choose Debug > Show Download Folder
+# Make a hard link to copy the installer .pkg to a new location
+ln /folder/from/debug/menu.pkg /new/package/location/appstoreinstaller.pkg
