@@ -46,6 +46,11 @@ find /Volumes -maxdepth 1 -not -user root -print0 | xargs -0 diskutil eject
 # Expand a .pkg into a folder to explore the files--folder mount point should not exist prior to command
 pkgutil --expand installer.pkg /path/to/new/folder/mountpoint
 
+# Eject CD/DVD
+drutil open tray
+# or
+drutil eject
+
 ###############################
 ######### SYSTEM ##############
 
