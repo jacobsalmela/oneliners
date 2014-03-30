@@ -132,6 +132,24 @@ python -c "print ''.join(chr(int(c, 16) ^ 170) for c in '`sudo nvram security-pa
 # Print RAM size
 sysctl -n hw.memsize | awk '{print $0/1073741824" GB RAM"}';
 
+# Show SMC version
+ioreg -c AppleSMC | grep smc-version | cut -d'"' -f4
+# or
+system_profiler SPHardwareDataType | grep "SMC" | awk '{print $4}'
+
+# Show BootROM (EFI version)
+system_profiler SPHardwareDataType | grep "Boot ROM" | awk '{print $4}'
+
+# Show Bluetooth MAC address
+ioreg -c IOBluetoothHCIController | grep BluetoothDeviceAddress | grep -v BluetoothDeviceAddressData | cut -d'"' -f4
+
+# Append all commands entered into the system log
+# http://jablonskis.org/2011/howto-log-bash-history-to-syslog/
+# Add this to .bash_profile 
+# Used with my Single-user mode IDS
+# https://github.com/jakesalmela/single-user-mode-ids
+declare -rx PROMPT_COMMAND='history -a >(tee -a ~/.bash_history | logger -t "**SUM-IDS")'
+
 ###############################
 ###### NETWORK/INTERNET #######
 
@@ -163,23 +181,8 @@ ab -n 10000 -c 50 http://test.server.com
 # Display 10 second average up/down for en0--change en0 to desired network interface
 sar -n DEV 1 10 | grep -i 'average.*en0'| awk '{printf "Up:\t%.2f Kbps\nDown:\t%.2f Kbps\n", $6 / 1024, $4 / 1024 }'
 
-# Show SMC version
-ioreg -c AppleSMC | grep smc-version | cut -d'"' -f4
-# or
-system_profiler SPHardwareDataType | grep "SMC" | awk '{print $4}'
-
-# Show BootROM (EFI version)
-system_profiler SPHardwareDataType | grep "Boot ROM" | awk '{print $4}'
-
-# Show Bluetooth MAC address
-ioreg -c IOBluetoothHCIController | grep BluetoothDeviceAddress | grep -v BluetoothDeviceAddressData | cut -d'"' -f4
-
-# Append all commands entered into the system log
-# http://jablonskis.org/2011/howto-log-bash-history-to-syslog/
-# Add this to .bash_profile 
-# Used with my Single-user mode IDS
-# https://github.com/jakesalmela/single-user-mode-ids
-declare -rx PROMPT_COMMAND='history -a >(tee -a ~/.bash_history | logger -t "**SUM-IDS")'
+# One page Web server using netcat
+while true; do nc -l 80 < error.html; done
 
 ###############################
 ########### MISC ##############
