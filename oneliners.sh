@@ -184,6 +184,9 @@ sar -n DEV 1 10 | grep -i 'average.*en0'| awk '{printf "Up:\t%.2f Kbps\nDown:\t%
 # One page Web server using netcat
 while true; do nc -l 80 < error.html; done
 
+# Enable advanced network commands
+ENABLE_EXPERIMENTAL_SCUTIL_COMMANDS=1 scutil --net
+
 ###############################
 ########### MISC ##############
 
