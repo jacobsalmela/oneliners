@@ -150,6 +150,15 @@ ioreg -c IOBluetoothHCIController | grep BluetoothDeviceAddress | grep -v Blueto
 # https://github.com/jakesalmela/single-user-mode-ids
 declare -rx PROMPT_COMMAND='history -a >(tee -a ~/.bash_history | logger -t "**SUM-IDS")'
 
+# List launchd processes
+# A is active
+# I is inactive
+# D is on demand
+launchctl bslist
+
+# Heirarchical list of launchd processes
+launchctl bstree
+
 ###############################
 ###### NETWORK/INTERNET #######
 
