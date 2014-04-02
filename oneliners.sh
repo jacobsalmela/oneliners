@@ -228,3 +228,7 @@ defaults write com.apple.appstore ShowDebugMenu -bool true
 # Start downloading an app.  Choose Debug > Show Download Folder
 # Make a hard link to copy the installer .pkg to a new location
 ln /folder/from/debug/menu.pkg /new/package/location/appstoreinstaller.pkg
+
+# Convert a manpage to HTML
+# @jescala https://jamfnation.jamfsoftware.com/featureRequest.html?id=762
+gzcat /usr/share/man/man1/man.1.gz | groff -mandoc -Thtml > man-1.html	
