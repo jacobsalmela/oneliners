@@ -51,6 +51,9 @@ drutil open tray
 # or
 drutil eject
 
+# Remove .DS_Store files that sometimes cause incongruent Finder view settings
+sudo find / -name ".DS_Store" -depth -exec rm {} \;
+
 ###############################
 ######### SYSTEM ##############
 
