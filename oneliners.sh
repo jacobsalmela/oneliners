@@ -235,3 +235,10 @@ ln /folder/from/debug/menu.pkg /new/package/location/appstoreinstaller.pkg
 # Convert a manpage to HTML
 # @jescala https://jamfnation.jamfsoftware.com/featureRequest.html?id=762
 gzcat /usr/share/man/man1/man.1.gz | groff -mandoc -Thtml > man-1.html	
+
+# Find out how many hours you have been logged into your Mac
+ac -p | grep `whoami` | awk '{print $2}'
+
+# Find out the user who has been logged in the most
+# https://github.com/timsutton/scripts/blob/master/getMostFrequentUser/getMostFrequentUser.sh
+ac -p | sort -nrk 2 | awk 'NR == 2 {print $1}'
