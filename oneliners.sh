@@ -169,6 +169,12 @@ sudo defaults write /System/Library/LaunchDaemons/com.apple.mDNSResponder ExitTi
 sudo defaults write /System/Library/LaunchDaemons/com.apple.diskarbitrationd ExitTimeOut -int 5
 sudo defaults write /System/Library/LaunchAgents/com.apple.coreservices.appleid.authentication ExitTimeOut -int 5
 
+# Reset LaunchServices (removes duplicates/problems in Open With...)
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+
+# Set a default program for a fileytpe.  Below is just one example
+defaults write com.apple.LaunchServices LSHandlers -array-add '{LSHandlerContentType = "com.adobe.pdf"; LSHandlerRoleAll = "com.apple.preview";}'
+
 ###############################
 ###### NETWORK/INTERNET #######
 
