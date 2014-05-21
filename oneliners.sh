@@ -175,6 +175,9 @@ sudo defaults write /System/Library/LaunchAgents/com.apple.coreservices.appleid.
 # Set a default program for a fileytpe.  Below is just one example
 defaults write com.apple.LaunchServices LSHandlers -array-add '{LSHandlerContentType = "com.adobe.pdf"; LSHandlerRoleAll = "com.apple.preview";}'
 
+# Determine if computer is at the login window and owned by root (useful for running scripts that require a GUI)
+ps auxc | grep loginwindow | grep root | awk '{print $1}'
+
 ###############################
 ###### NETWORK/INTERNET #######
 
