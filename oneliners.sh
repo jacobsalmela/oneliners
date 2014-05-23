@@ -43,6 +43,9 @@ find /Volumes -maxdepth 1 -not -user root -print0 | xargs -0 umount
 # Eject all external storage
 find /Volumes -maxdepth 1 -not -user root -print0 | xargs -0 diskutil eject
 
+# Eject all network and external drives
+osascript -e 'tell application "Finder" to eject (every disk whose ejectable is true)'
+
 # Expand a .pkg into a folder to explore the files--folder mount point should not exist prior to command
 pkgutil --expand installer.pkg /path/to/new/folder/mountpoint
 
