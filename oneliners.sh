@@ -181,6 +181,9 @@ defaults write com.apple.LaunchServices LSHandlers -array-add '{LSHandlerContent
 # Determine if computer is at the login window and owned by root (useful for running scripts that require a GUI)
 ps auxc | grep loginwindow | grep root | awk '{print $1}'
 
+# Add item to accessibility 
+sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "INSERT INTO "access" VALUES('kTCCServiceAccessibility','/usr/bin/osascript',1,1,1,NULL)"
+
 ###############################
 ###### NETWORK/INTERNET #######
 
