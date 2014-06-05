@@ -221,6 +221,9 @@ while true; do nc -l 80 < error.html; done
 # Enable advanced network commands
 ENABLE_EXPERIMENTAL_SCUTIL_COMMANDS=1 scutil --net
 
+# Disable IPv6
+networksetup -setv6off Ethernet && networksetup -setv6off Wi-Fi
+
 ###############################
 ########### MISC ##############
 
