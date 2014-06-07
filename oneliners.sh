@@ -28,6 +28,9 @@ LC_ALL=C tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=unblock | G
 # http://osxdaily.com/2013/08/15/turn-the-terminal-into-a-matrix-style-scrolling-screen-of-binary-or-gibberish/
 while (true) do echo -n "9A85Y1BF978124871248172487124871248712487124"; done
 
+# Set the screensaver as the wallpaper
+/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background
+
 ###############################
 ########### FINDER ############
 
