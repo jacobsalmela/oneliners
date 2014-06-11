@@ -270,3 +270,6 @@ ac -p | grep `whoami` | awk '{print $2}'
 # Find out the user who has been logged in the most
 # https://github.com/timsutton/scripts/blob/master/getMostFrequentUser/getMostFrequentUser.sh
 ac -p | sort -nrk 2 | awk 'NR == 2 {print $1}'
+
+# Delete all blank lines
+cat something.txt | sed '/^$/d'
