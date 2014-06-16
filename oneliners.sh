@@ -187,6 +187,9 @@ ps auxc | grep loginwindow | grep root | awk '{print $1}'
 # Add item to accessibility 
 sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "INSERT INTO "access" VALUES('kTCCServiceAccessibility','/usr/bin/osascript',1,1,1,NULL)"
 
+# Sync the login window text with the FilveVault unlock screen
+sudo touch /System/Library/PrivateFrameworks/EFILogin.framework/Resources/EFIResourceBuilder.bundle/Contents/Resources
+
 ###############################
 ###### NETWORK/INTERNET #######
 
