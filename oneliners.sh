@@ -190,6 +190,9 @@ sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "INSERT INTO "access"
 # Sync the login window text with the FilveVault unlock screen
 sudo touch /System/Library/PrivateFrameworks/EFILogin.framework/Resources/EFIResourceBuilder.bundle/Contents/Resources
 
+# Print hardware UUID
+ioreg -rd1 -c IOPlatformExpertDevice | awk '/IOPlatformUUID/ { split($0, line, "\""); printf("%s\n", line[4]); }'
+
 ###############################
 ###### NETWORK/INTERNET #######
 
