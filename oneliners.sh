@@ -60,6 +60,9 @@ drutil eject
 # Remove .DS_Store files that sometimes cause incongruent Finder view settings
 sudo find / -name ".DS_Store" -depth -exec rm {} \;
 
+# Fix this error: "x.app" is damaged and can't be opened. You should move it to the Trash.
+xattr -rc /Applications/x.app
+
 ###############################
 ######### SYSTEM ##############
 
