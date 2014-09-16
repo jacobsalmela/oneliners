@@ -282,3 +282,6 @@ ac -p | sort -nrk 2 | awk 'NR == 2 {print $1}'
 
 # Delete all blank lines
 cat something.txt | sed '/^$/d'
+
+# Delete whitespace
+cat something.txt | sed 's/ //g'
