@@ -63,6 +63,9 @@ sudo find / -name ".DS_Store" -depth -exec rm {} \;
 # Fix this error: "x.app" is damaged and can't be opened. You should move it to the Trash.
 xattr -rc /Applications/x.app
 
+# Escape whitespace in a filepath
+echo $1 | sed 's/\ /\\ /g'
+
 ###############################
 ######### SYSTEM ##############
 
