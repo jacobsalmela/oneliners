@@ -239,6 +239,9 @@ ENABLE_EXPERIMENTAL_SCUTIL_COMMANDS=1 scutil --net
 # Disable IPv6
 networksetup -setv6off Ethernet && networksetup -setv6off Wi-Fi
 
+# Do not remember wireless networks
+sudo /usr/libexec/airportd prefs RememberRecentNetworks=NO
+
 ###############################
 ########### MISC ##############
 
