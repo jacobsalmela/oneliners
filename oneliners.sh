@@ -199,6 +199,9 @@ sudo touch /System/Library/PrivateFrameworks/EFILogin.framework/Resources/EFIRes
 # Print hardware UUID
 ioreg -rd1 -c IOPlatformExpertDevice | awk '/IOPlatformUUID/ { split($0, line, "\""); printf("%s\n", line[4]); }'
 
+# Show serial number
+ioreg -l | grep IOPlatformSerialNumber | cut -d'"' -f4
+
 ###############################
 ###### NETWORK/INTERNET #######
 
