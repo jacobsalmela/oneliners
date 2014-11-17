@@ -202,6 +202,12 @@ ioreg -rd1 -c IOPlatformExpertDevice | awk '/IOPlatformUUID/ { split($0, line, "
 # Show serial number
 ioreg -l | grep IOPlatformSerialNumber | cut -d'"' -f4
 
+# EFI 64 or 32-bit
+ioreg -l -p IODeviceTree -l | grep firmware-abi | cut -d'"' -f4
+
+# 64 or 32-bit kernel
+uname -a | cut -d'/' -f2-
+
 ###############################
 ###### NETWORK/INTERNET #######
 
