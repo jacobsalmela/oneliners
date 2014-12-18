@@ -14,6 +14,9 @@
 # Watch star wars from the command line
 telnet towel.blinkenlights.nl
 
+# Star Wars traeroute
+traceroute -m 254 -q1 obiwan.scrye.net
+
 # Correctly pronounce OS X.  this command is case sensitive and can be used to prove that OS X is OS Ten, not OS x
 say OS X
 
@@ -207,6 +210,9 @@ ioreg -l -p IODeviceTree -l | grep firmware-abi | cut -d'"' -f4
 
 # 64 or 32-bit kernel
 uname -a | cut -d'/' -f2-
+
+# Is printer sharing on? 0 for no, 1 for yes
+cupsctl | grep "_share_printers=" | cut -d'=' -f2
 
 ###############################
 ###### NETWORK/INTERNET #######
